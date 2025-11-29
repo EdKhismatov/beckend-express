@@ -29,6 +29,8 @@ server.post('/payload/pay', (req, res) => {
   res.send(`Вернул body`);
 });
 
+// еще один коммит
+
 server.listen(port, () => {
   console.log(`Server is started on port ${port}...`);
 });
