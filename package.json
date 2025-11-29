@@ -26,6 +26,9 @@
   },
   "dependencies": {
     "express": "^4.21.2",
+    "koffi": "^2.14.1",
+    "pino": "^10.1.0",
+    "pino-pretty": "^13.1.2",
     "rimraf": "^6.1.2"
   },
   "prettier": {

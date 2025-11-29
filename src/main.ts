@@ -1,4 +1,5 @@
 import express from 'express';
+import logger from './logger/pino.logger';
 
 const server = express();
 
@@ -6,31 +7,22 @@ const port = 2000;
 server.use(express.json()); // Включаем парсер тела
 
 server.get('/payload/:id', (req, res) => {
-  console.log('Использую метод POST');
-  console.log(req.params);
-  res.send(`Вернул парамс ${req.params}`);
+  logger.info(req.params, 'Использую метод Get, Отработано успешно');
+  res.send(`Вернул парамс ${req.params.id}`);
 });
 
-server.get('/payload/user', (req, res) => {
-  console.log('Использую метод POST');
-  console.log(req.query);
+server.post('/payload/user', (req, res) => {
+  logger.info('Использую метод POST');
+  logger.info(req.query);
   res.send(`Вернул query`);
 });
 
 server.post('/payload', (req, res) => {
-  console.log('Использую метод POST');
-  console.log(req.body);
+  logger.info('Использую метод POST');
+  logger.info(req.body);
   res.send(`Вернул body`);
 });
-
-server.post('/payload/pay', (req, res) => {
-  console.log('Использую метод POST');
-  console.log(req.body);
-  res.send(`Вернул body`);
-});
-
-// еще один коммит
 
 server.listen(port, () => {
-  console.log(`Server is started on port ${port}...`);
+  logger.info(`Server is started on port ${port}...`);
 });
