@@ -23,6 +23,12 @@ server.post('/payload', (req, res) => {
   res.send(`Вернул body`);
 });
 
+server.post('/payload/pay', (req, res) => {
+  console.log('Использую метод POST');
+  console.log(req.body);
+  res.send(`Вернул body`);
+});
+
 server.listen(port, () => {
   console.log(`Server is started on port ${port}...`);
 });
