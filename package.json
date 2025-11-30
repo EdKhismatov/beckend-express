@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && rimraf dist",
-    "start": "ts-node src/main.ts"
+    "start": "ts-node src/main.ts",
+    "eslint": "eslint src --fix"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
