@@ -1,27 +1,18 @@
 import express from 'express';
+import { logRoutes } from './log-routes';
 import logger from './logger/pino.logger';
+import { userTask } from './modules/task';
+import { userRouter } from './modules/user';
 
 const server = express();
 
 const port = 2000;
-server.use(express.json()); // Включаем парсер тела
+server.use(express.json());
 
-server.get('/payload/:id', (req, res) => {
-  logger.info(req.params, 'Использую метод Get, Отработано успешно');
-  res.send(`Вернул парамс ${req.params.id}`);
-});
+server.use('/user', userRouter);
+server.use('/task', userTask);
 
-server.post('/payload/user', (req, res) => {
-  logger.info('Использую метод POST');
-  logger.info(req.query);
-  res.send(`Вернул query`);
-});
-
-server.post('/payload', (req, res) => {
-  logger.info('Использую метод POST');
-  logger.info(req.body);
-  res.send(`Вернул body`);
-});
+logRoutes(server);
 
 server.listen(port, () => {
   logger.info(`Server is started on port ${port}...`);
