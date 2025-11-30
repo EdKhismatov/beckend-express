@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && rimraf dist",
+    "build": "npm run clean && tsc",
     "start": "ts-node src/main.ts",
     "eslint": "eslint src --fix"
   },
