@@ -1,6 +1,6 @@
 import express from 'express';
 import logger from '../logger/pino.logger';
-import { userMock } from '../mocks/userMocks';
+import { userMock } from '../mocks/user.mocks';
 
 export const userRouter = express.Router();
 

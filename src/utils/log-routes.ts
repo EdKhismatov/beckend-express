@@ -1,4 +1,4 @@
-import logger from './logger/pino.logger';
+import logger from '../logger/pino.logger';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 export const logRoutes = (server: any) => {

@@ -1,8 +1,8 @@
 import express from 'express';
-import { logRoutes } from './log-routes';
 import logger from './logger/pino.logger';
-import { userTask } from './modules/task';
-import { userRouter } from './modules/user';
+import { taskRouter } from './modules/task.module';
+import { userRouter } from './modules/user.module';
+import { logRoutes } from './utils/log-routes';
 
 const server = express();
 
@@ -10,7 +10,7 @@ const port = 2000;
 server.use(express.json());
 
 server.use('/user', userRouter);
-server.use('/task', userTask);
+server.use('/task', taskRouter);
 
 logRoutes(server);
 
