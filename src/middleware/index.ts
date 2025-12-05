@@ -1,1 +1,1 @@
-export * from './task.middleware';
+export * from './error-handler.middleware';
